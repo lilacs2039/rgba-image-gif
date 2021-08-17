@@ -2,7 +2,7 @@ import { Frame } from 'omggif'
 export { Frame } from 'omggif'
 
 export type Repeat = {
-  repeat: 0 | -1
+  repeat: number
 }
 
 export type Delay = {
@@ -28,4 +28,8 @@ export type FrameArg = ImageData | FrameSettings
 export type FrameData = {
   imageData: ImageData
   frame: Frame
+}
+
+export type GifData = Repeat & {
+  frames: FrameData[]
 }

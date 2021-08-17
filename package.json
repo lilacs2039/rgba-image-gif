@@ -1,6 +1,6 @@
 {
   "name": "@rgba-image/gif",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Convert between GIF and ImageData",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -26,11 +26,11 @@
   "dependencies": {
     "@rgba-image/common": "^0.1.13",
     "@rgba-image/create-image": "^0.1.1",
+    "@types/omggif": "^1.0.2",
     "gifencoder": "^2.0.1",
     "omggif": "^1.0.10"
   },
   "devDependencies": {
-    "@types/gifencoder": "^2.0.1",
-    "@types/omggif": "^1.0.2"
+    "@types/gifencoder": "^2.0.1"
   }
 }

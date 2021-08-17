@@ -1,6 +1,6 @@
 import { createImage } from '@rgba-image/create-image'
 import { GifReader } from 'omggif'
-import { FrameData } from './types'
+import { FrameData, GifData } from './types'
 
 export const fromGif = ( gif: Uint8Array ) => fromAnimatedGif( gif )[ 0 ]
 
@@ -24,12 +24,13 @@ export const fromAnimatedGif = ( gif: Uint8Array ) => {
   return frames  
 }
 
-export const frameDataFromAnimatedGif = ( gif: Uint8Array ) => {
+export const dataFromAnimatedGif = ( gif: Uint8Array ) => {
   const reader = new GifReader( Buffer.from( gif ) )
-
-  const { width, height } = reader
   
+  const { width, height } = reader
+ 
   const length = reader.numFrames()
+  const repeat = reader.loopCount()
 
   const frames = Array<FrameData>( length )
 
@@ -43,7 +44,11 @@ export const frameDataFromAnimatedGif = ( gif: Uint8Array ) => {
     frames[ i ] = { imageData, frame }
   }
 
-  return frames  
+  const gifData: GifData = {
+    repeat, frames
+  }
+
+  return gifData
 }
 
 export const isAnimatedGif = ( gif: Uint8Array ) => {

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isAnimatedGif = exports.frameDataFromAnimatedGif = exports.fromAnimatedGif = exports.fromGif = void 0;
+exports.isAnimatedGif = exports.dataFromAnimatedGif = exports.fromAnimatedGif = exports.fromGif = void 0;
 const create_image_1 = require("@rgba-image/create-image");
 const omggif_1 = require("omggif");
 const fromGif = (gif) => exports.fromAnimatedGif(gif)[0];
@@ -18,10 +18,11 @@ const fromAnimatedGif = (gif) => {
     return frames;
 };
 exports.fromAnimatedGif = fromAnimatedGif;
-const frameDataFromAnimatedGif = (gif) => {
+const dataFromAnimatedGif = (gif) => {
     const reader = new omggif_1.GifReader(Buffer.from(gif));
     const { width, height } = reader;
     const length = reader.numFrames();
+    const repeat = reader.loopCount();
     const frames = Array(length);
     for (let i = 0; i < length; i++) {
         const imageData = create_image_1.createImage(width, height);
@@ -29,9 +30,12 @@ const frameDataFromAnimatedGif = (gif) => {
         const frame = reader.frameInfo(i);
         frames[i] = { imageData, frame };
     }
-    return frames;
+    const gifData = {
+        repeat, frames
+    };
+    return gifData;
 };
-exports.frameDataFromAnimatedGif = frameDataFromAnimatedGif;
+exports.dataFromAnimatedGif = dataFromAnimatedGif;
 const isAnimatedGif = (gif) => {
     const reader = new omggif_1.GifReader(Buffer.from(gif));
     return reader.numFrames() > 1;

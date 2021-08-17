@@ -63,21 +63,28 @@ const gif3 = toAnimatedGif(
 ```
 
 ```ts
-import { frameDataFromAnimatedGif } from '@rgba-image/gif'
+import { dataFromAnimatedGif } from '@rgba-image/gif'
 
 // read the gif bytes then:
 
-const frameData = frameDataFromAnimatedGif( gifBytes )
+const data = dataFromAnimatedGif( gifBytes )
 
 /* 
-  frameData is an array of: 
+  Retuns GifData
+
+  GifData looks like:
+  {
+    repeat: number
+    frames: FrameData[]
+  }
+
+  FrameData looks like: 
   {
     imageData: ImageData
     frame: Frame
   }
 
-  a Frame looks like:
-
+  Frame looks like:
   {
     data_length: number
     data_offset: number
