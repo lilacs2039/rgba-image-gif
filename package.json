@@ -1,0 +1,36 @@
+{
+  "name": "@rgba-image/gif",
+  "version": "0.0.1",
+  "description": "Convert between GIF and ImageData",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "rimraf dist && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rgba-image/gif.git"
+  },
+  "keywords": [
+    "ImageData",
+    "gif",
+    "rgba",
+    "image"
+  ],
+  "author": "Nik Coughlin <nrkn.com@gmail>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rgba-image/gif/issues"
+  },
+  "homepage": "https://github.com/rgba-image/gif#readme",
+  "dependencies": {
+    "@rgba-image/common": "^0.1.13",
+    "@rgba-image/create-image": "^0.1.1",
+    "gifencoder": "^2.0.1",
+    "omggif": "^1.0.10"
+  },
+  "devDependencies": {
+    "@types/gifencoder": "^2.0.1",
+    "@types/omggif": "^1.0.2"
+  }
+}
