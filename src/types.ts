@@ -1,4 +1,5 @@
 import { Frame } from 'omggif'
+export { Frame } from 'omggif'
 
 export type Repeat = {
   repeat: 0 | -1
