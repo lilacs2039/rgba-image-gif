@@ -1,6 +1,7 @@
 import { createImage } from '@rgba-image/create-image'
 import { GifReader } from 'omggif'
 import { FrameData, GifData } from './types'
+import { Buffer } from 'buffer'
 
 export const fromGif = ( gif: Uint8Array ) => fromAnimatedGif( gif )[ 0 ]
 
